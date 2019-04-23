@@ -17,6 +17,7 @@
 package org.springframework.samples.petclinic.rest;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -146,6 +147,39 @@ public class PetRestControllerTests {
     	given(this.clinicService.findAllPets()).willReturn(pets);
         this.mockMvc.perform(get("/api/pets/")
         	.accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testGetPetsByOwnerIdSuccess() throws Exception {
+        Owner owner = mock(Owner.class);
+        given(this.clinicService.findOwnerById(3)).willReturn(owner);
+        given(owner.getPets()).willReturn(pets);
+        this.mockMvc.perform(get("/api/pets/getPetsByOwnerId/3")
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(content().contentType("application/json;charset=UTF-8"))
+            .andExpect(jsonPath("$.[0].id").value(3))
+            .andExpect(jsonPath("$.[0].name").value("Rosy"))
+            .andExpect(jsonPath("$.[1].id").value(4))
+            .andExpect(jsonPath("$.[1].name").value("Jewel"));
+    }
+
+    @Test
+    public void testGetPetsByOwnerIdOwnerNotFound() throws Exception {
+        given(this.clinicService.findOwnerById(3)).willReturn(null);
+        this.mockMvc.perform(get("/api/pets/getPetsByOwnerId/3")
+            .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void testGetPetsByOwnerIdPetsNotFound() throws Exception {
+        Owner owner = mock(Owner.class);
+        given(this.clinicService.findOwnerById(3)).willReturn(owner);
+        given(owner.getPets()).willReturn(new ArrayList<Pet>());
+        this.mockMvc.perform(get("/api/pets/getPetsByOwnerId/3")
+            .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNotFound());
     }
 

@@ -26,6 +26,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.service.ClinicService;
@@ -64,10 +65,23 @@ public class PetRestController {
 	public ResponseEntity<Collection<Pet>> getPets(){
 		Collection<Pet> pets = this.clinicService.findAllPets();
 		if(pets.isEmpty()){
-			return new ResponseEntity<Collection<Pet>>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		return new ResponseEntity<Collection<Pet>>(pets, HttpStatus.OK);
 	}
+
+    @RequestMapping(value = "/getPetsByOwnerId/{ownerId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Collection<Pet>> getPetsByOwnerId(@PathVariable("ownerId") int ownerId){
+        Owner owner = this.clinicService.findOwnerById(ownerId);
+        if (owner == null) {
+            return new ResponseEntity<Collection<Pet>>(HttpStatus.NOT_FOUND);
+        }
+        Collection<Pet> pets = owner.getPets();
+        if(pets.isEmpty()){
+            return new ResponseEntity<Collection<Pet>>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Collection<Pet>>(pets, HttpStatus.OK);
+    }
 
 	@RequestMapping(value = "/pettypes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Collection<PetType>> getPetTypes(){
