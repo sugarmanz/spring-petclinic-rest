@@ -13,7 +13,7 @@
 
 2) Open psql and create the PetClinic database:
  
-	CREATE DATABASE petclinic
+	CREATE DATABASE petclinic-kotlin
   	WITH OWNER = postgres
        ENCODING = 'UTF8'
        TABLESPACE = pg_default

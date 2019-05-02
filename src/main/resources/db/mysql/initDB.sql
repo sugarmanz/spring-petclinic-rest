@@ -1,12 +1,12 @@
-CREATE DATABASE IF NOT EXISTS petclinic;
+CREATE DATABASE IF NOT EXISTS petclinic-kotlin;
 
-ALTER DATABASE petclinic
+ALTER DATABASE petclinic-kotlin
   DEFAULT CHARACTER SET utf8
   DEFAULT COLLATE utf8_general_ci;
 
-GRANT ALL PRIVILEGES ON petclinic.* TO pc@localhost IDENTIFIED BY 'pc';
+GRANT ALL PRIVILEGES ON petclinic-kotlin.* TO pc@localhost IDENTIFIED BY 'pc';
 
-USE petclinic;
+USE petclinic-kotlin;
 
 CREATE TABLE IF NOT EXISTS vets (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,

@@ -1,0 +1,12 @@
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceJdbcTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/VisitRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/model/ValidatorTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/SpecialtyRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/PetRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceJpaTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/VetRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/service/ClinicServiceSpringDataJpaTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/PetTypeRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/rest/OwnerRestControllerTests.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/service/ApplicationTestConfig.java
+/Users/jzucker/dev/GitHub/misc/spring-petclinic-rest/spring-petclinic-rest-java/src/test/java/org/springframework/samples/petclinic/service/AbstractClinicServiceTests.java
